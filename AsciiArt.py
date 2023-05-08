@@ -10,7 +10,6 @@ def pixelToGrayScale(pixels, j, i):
 
 def pixelToAscii(pixels, j, i):
     ramp = " `.-':_,^=;><+!rc*/z?sLTv)J7(|Fi{C}fI31tlu[neoZ5Yxjya]2ESwqkP6h9d4VpOGbUAKXHm8RD#$Bg0MNWQ%&@"
-    # test
     return ramp[int(pixels[j, i][0] * len(ramp) / 256)]
 
 def detectSize(img: Image)->tuple[int, int]:
