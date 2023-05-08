@@ -1,18 +1,18 @@
 from PIL import Image
 import clipboard
 
-def pixelToGrayScale(pixels, j, i):
+def pixelToGrayScale(pixels: list[list], j: int, i: int)-> None:
     red = pixels[j, i][0]
     green = pixels[j, i][1]
     blue = pixels[j, i][2]
     gray = (red + green + blue) // 3
     pixels[j, i] = (gray, gray, gray)
 
-def pixelToAscii(pixels, j, i):
+def pixelToAscii(pixels: list[list], j: int, i: int)-> str:
     ramp = " `.-':_,^=;><+!rc*/z?sLTv)J7(|Fi{C}fI31tlu[neoZ5Yxjya]2ESwqkP6h9d4VpOGbUAKXHm8RD#$Bg0MNWQ%&@"
     return ramp[int(pixels[j, i][0] * len(ramp) / 256)]
 
-def detectSize(img: Image)->tuple[int, int]:
+def detectSize(img: Image)-> tuple[int, int]:
     MAX_SIZE = 128
     width, height = img.size
     if(width <= MAX_SIZE or height <= MAX_SIZE):
@@ -20,7 +20,7 @@ def detectSize(img: Image)->tuple[int, int]:
         return (width, height)
     else:
         print(f"Image is {width}x{height}.")
-        print(f"Image is too large. Resizing to fit {MAX_SIZE}x{MAX_SIZE}.")
+        print(f"Image is too large. Resizing to fit {MAX_SIZE}x{MAX_SIZE} with respect to aspect ratio.")
         if(width > height):
             return (MAX_SIZE, MAX_SIZE * height // width)
         else:
