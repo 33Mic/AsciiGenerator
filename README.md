@@ -1,6 +1,9 @@
 # Image to ASCII Converter
 
 A simple Python script that turns images into ASCII art and copies the result to your clipboard.
+| Before | After |
+| --- | --- |
+| ![original image](readMeBefore.jpg)| ![alt text](readMeAfter.png) |
 
 ## How to Use
 
